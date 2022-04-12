@@ -13,6 +13,9 @@
         Body:
         <input type="text" v-model="newPost.body" />
       </p>
+      <small v-if="newPost?.body?.length > 0 && newPost?.body?.length < 100" class="text-danger">
+        Body must be less than 100 characters.
+      </small>
       <p>
         Image Link:
         <input type="text" v-model="newPost.image" />

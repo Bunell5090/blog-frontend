@@ -10,12 +10,16 @@
         <input type="text" v-model="newPost.title" />
       </p>
       <p>
+        <small v-if="newPost?.title?.length > 0 && newPost?.title?.length < 20">
+          Remaining characters: {{ 20 - newPost?.title?.length }}
+        </small>
+        <small v-if="newPost?.title?.length > 20" class="text-danger">Post title can't be over 20 characters.</small>
+      </p>
+      <p>
         Body:
         <input type="text" v-model="newPost.body" />
       </p>
-      <small v-if="newPost?.body?.length > 0 && newPost?.body?.length < 100" class="text-danger">
-        Body must be less than 100 characters.
-      </small>
+
       <p>
         Image Link:
         <input type="text" v-model="newPost.image" />
